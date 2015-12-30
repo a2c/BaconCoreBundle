@@ -2,6 +2,7 @@ BaconCoreBundle
 ===============
 
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/0fcf3272ea6f41f79afc4f11bfa77854)](https://www.codacy.com/app/adan-grg/BaconCoreBundle)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/798deed7-23b8-4fba-a6e6-cb018d11d008/mini.png)](https://insight.sensiolabs.com/projects/798deed7-23b8-4fba-a6e6-cb018d11d008)
 
 Este bundle é responsavel por adicionar classes para abstrair algumas funções do Symfony tais como uma entidade Base com *behaviors* para criar campos padrões de **created/updated** e **Soft-Deleted**, FormHandler base para salvar, atualizar e deletar registros do banco de dados utilizando o **ORM Doctrine2**
 
