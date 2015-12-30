@@ -1,5 +1,5 @@
 {
-    "name": "bacon/core-bundle",
+    "name": "baconmanager/core-bundle",
     "description": "This bundle of symfony2",
     "keywords": ["Core"],
     "type": "symfony-bundle",
