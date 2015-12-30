@@ -1,6 +1,6 @@
 {
     "name": "bacon/core-bundle",
-    "description": "This bundle of symfony2 ",
+    "description": "This bundle of symfony2",
     "keywords": ["Core"],
     "type": "symfony-bundle",
     "license":      "MIT",
