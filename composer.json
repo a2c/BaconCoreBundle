@@ -19,7 +19,7 @@
     ],
     "require": {
         "gedmo/doctrine-extensions": "master-dev",
-        "phpoffice/phpexcel" : "1.8.1",
+        "phpoffice/phpexcel" : "1.8.1"
     },
     "autoload": {
         "psr-4": { "Bacon\\Bundle\\CoreBundle\\": "" }
