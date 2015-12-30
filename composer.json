@@ -18,7 +18,7 @@
         }
     ],
     "require": {
-        "gedmo/doctrine-extensions": "master-dev",
+        "gedmo/doctrine-extensions": "2.4.*",
         "phpoffice/phpexcel" : "1.8.1"
     },
     "autoload": {
