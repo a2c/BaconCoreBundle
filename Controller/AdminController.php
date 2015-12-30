@@ -32,7 +32,7 @@ abstract class AdminController extends Controller
      *
      * @return Form
      */
-    public function createDeleteForm()
+    protected function createDeleteForm()
     {
         return $this->createFormBuilder()->add('id', 'hidden')->getForm();
     }
