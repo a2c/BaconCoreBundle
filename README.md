@@ -2,6 +2,8 @@ BaconCoreBundle
 ===============
 
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/0fcf3272ea6f41f79afc4f11bfa77854)](https://www.codacy.com/app/adan-grg/BaconCoreBundle)
+[![Latest Stable Version](https://poser.pugx.org/baconmanager/core-bundle/v/stable)](https://packagist.org/packages/baconmanager/core-bundle)
+[![License](https://poser.pugx.org/baconmanager/core-bundle/license)](https://packagist.org/packages/baconmanager/core-bundle)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/798deed7-23b8-4fba-a6e6-cb018d11d008/mini.png)](https://insight.sensiolabs.com/projects/798deed7-23b8-4fba-a6e6-cb018d11d008)
 
 Este bundle é responsavel por adicionar classes para abstrair algumas funções do Symfony tais como uma entidade Base com *behaviors* para criar campos padrões de **created/updated** e **Soft-Deleted**, FormHandler base para salvar, atualizar e deletar registros do banco de dados utilizando o **ORM Doctrine2**
@@ -22,6 +24,7 @@ public function registerBundles()
 {
     // ...
     new Bacon\Bundle\CoreBundle\BaconCoreBundle(),
+    new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
     // ...
 }
 ```
@@ -55,3 +58,5 @@ services:
         calls:
             - [ setAnnotationReader, [ "@annotation_reader" ] ]
 ```
+
+Para configurar o pacote KnpPaginatorBundle basta olhar na configuração do bundle no acessando o este [Link](https://github.com/KnpLabs/KnpPaginatorBundle)!
