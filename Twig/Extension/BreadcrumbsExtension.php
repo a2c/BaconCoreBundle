@@ -2,8 +2,6 @@
 
 namespace Bacon\Bundle\CoreBundle\Twig\Extension;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
-
 /**
  * Class BreadcrumbsExtension
  * @package Bacon\Bundle\CoreBundle\Twig\Extension
@@ -14,11 +12,6 @@ class BreadcrumbsExtension extends \Twig_Extension
     const TEMPLATE = 'BaconCoreBundle:partial:breadcrumbs.html.twig';
 
     /**
-     * @var ContainerInterface
-     */
-    protected $container;
-
-    /**
      * @var \Twig_Environment
      */
     protected $enviroment;
@@ -27,14 +20,6 @@ class BreadcrumbsExtension extends \Twig_Extension
      * @var array
      */
     protected $parameter = array();
-
-    /**
-     * @param ContainerInterface $container
-     */
-    public function __construct(ContainerInterface $container)
-    {
-        $this->container = $container;
-    }
 
     /**
      * @return array
