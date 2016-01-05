@@ -111,15 +111,15 @@ abstract class FormHandler
                 return false;
             }
 
-        } else {
-            $errors = $this->getForm()->getErrors();
-            foreach ($errors as $error) {
-                $this->getFlashBag()->add('message', array(
-                    'type' => 'error',
-                    'message' => $error->getMessage(),
-                ));
-            }
-            return false;
+        } 
+
+        $errors = $this->getForm()->getErrors();
+        
+        foreach ($errors as $error) {
+            $this->getFlashBag()->add('message', array(
+                'type' => 'error',
+                'message' => $error->getMessage(),
+            ));
         }
 
         return false;
@@ -129,6 +129,7 @@ abstract class FormHandler
     public function delete($entity)
     {
         $this->getForm()->submit($this->getRequest());
+        
         if ($this->getForm()->isValid()) {
 
             try {
@@ -149,16 +150,17 @@ abstract class FormHandler
                 ));
             }
 
-        } else {
-            $errors = $this->getForm()->getErrors();
-
-            foreach ($errors as $error) {
-                $this->getFlashBag()->add('message', array(
-                    'type' => 'error',
-                    'message' => $error->getMessage(),
-                ));
-            }
-            return false;
         }
+
+        $errors = $this->getForm()->getErrors();
+
+        foreach ($errors as $error) {
+            $this->getFlashBag()->add('message', array(
+                'type' => 'error',
+                'message' => $error->getMessage(),
+            ));
+        }
+        
+        return false;
     }
 }
