@@ -13,3 +13,10 @@
 .actions {
     width: 126px;
 }
+
+.has-error .select2-selection {
+    border: 1px solid #a94442;
+}
+.has-success .select2-selection {
+    border: 1px solid #00a65a;
+}
