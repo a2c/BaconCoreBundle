@@ -20,3 +20,7 @@
 .has-success .select2-selection {
     border: 1px solid #00a65a;
 }
+
+.no-record-search-found{
+	font-weight: normal;
+}
