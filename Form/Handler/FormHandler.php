@@ -78,9 +78,8 @@ abstract class FormHandler
 
     public function save()
     {
-        $this->getForm()->submit($this->getRequest());
-
-        if ($this->getForm()->isValid()) {
+        $this->getForm()->handleRequest($this->getRequest());
+        if ($this->getForm()->isSubmitted() and $this->getForm()->isValid()) {
 
             $data = $this->getForm()->getData();
 
@@ -122,45 +121,6 @@ abstract class FormHandler
             ));
         }
 
-        return false;
-    }
-
-
-    public function delete($entity)
-    {
-        $this->getForm()->submit($this->getRequest());
-        
-        if ($this->getForm()->isValid()) {
-
-            try {
-
-                $this->getEm()->remove($entity);
-                $this->getEm()->flush();
-
-                $this->getFlashBag()->add('message', array(
-                    'type' => 'success',
-                    'message' => 'The record has been removed successfully.',
-                ));
-
-                return true;
-            } catch (\Exception $e) {
-                $this->getFlashBag()->add('message', array(
-                    'type' => 'success',
-                    'message' => $e->getMessage(),
-                ));
-            }
-
-        }
-
-        $errors = $this->getForm()->getErrors();
-
-        foreach ($errors as $error) {
-            $this->getFlashBag()->add('message', array(
-                'type' => 'error',
-                'message' => $error->getMessage(),
-            ));
-        }
-        
         return false;
     }
 }

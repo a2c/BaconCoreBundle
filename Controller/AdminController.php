@@ -3,6 +3,7 @@
 namespace Bacon\Bundle\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Form;
 
 abstract class AdminController extends Controller
@@ -32,8 +33,25 @@ abstract class AdminController extends Controller
      *
      * @return Form
      */
-    protected function createDeleteForm()
+    protected function createDeleteForm($routerName = null ,$entity = null)
     {
-        return $this->createFormBuilder()->add('id', 'hidden')->getForm();
+        $form =  $this
+            ->createFormBuilder()
+            ->setMethod('DELETE')
+        ;
+
+        if (!is_null($routerName) and !is_null($entity)) {
+            $form->setAction($this->generateUrl($routerName, array('id' => $entity->getId())));
+        }
+
+        return $form->getForm();
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface|\Symfony\Component\HttpFoundation\Session\SessionBagInterface
+     */
+    protected function getFlashBag()
+    {
+        return $this->get('session')->getFlashBag();
     }
 }
