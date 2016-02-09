@@ -24,3 +24,9 @@
 .no-record-search-found{
 	font-weight: normal;
 }
+
+.alert .close {
+  color: #000;
+  opacity: 1;
+  filter: alpha(opacity=0);
+}
