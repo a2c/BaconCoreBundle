@@ -26,7 +26,7 @@
 }
 
 .alert .close {
-  color: #000;
+  color: #fff;
   opacity: 1;
   filter: alpha(opacity=0);
 }
