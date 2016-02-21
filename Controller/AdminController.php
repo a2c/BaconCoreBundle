@@ -3,7 +3,6 @@
 namespace Bacon\Bundle\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Form;
 
 abstract class AdminController extends Controller
@@ -40,7 +39,7 @@ abstract class AdminController extends Controller
             ->setMethod('DELETE')
         ;
 
-        if (!is_null($routerName) and !is_null($entity)) {
+        if (!is_null($routerName) && !is_null($entity)) {
             $form->setAction($this->generateUrl($routerName, array('id' => $entity->getId())));
         }
 

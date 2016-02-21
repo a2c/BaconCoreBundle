@@ -79,7 +79,8 @@ abstract class FormHandler
     public function save()
     {
         $this->getForm()->handleRequest($this->getRequest());
-        if ($this->getForm()->isSubmitted() and $this->getForm()->isValid()) {
+        
+        if ($this->getForm()->isSubmitted() && $this->getForm()->isValid()) {
 
             $data = $this->getForm()->getData();
 
