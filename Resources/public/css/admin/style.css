@@ -22,11 +22,15 @@
 }
 
 .no-record-search-found{
-	font-weight: normal;
+  font-weight: normal;
 }
 
 .alert .close {
-  color: #fff;
+  color: #000;
   opacity: 1;
   filter: alpha(opacity=0);
+}
+
+.logo-lg {
+    text-align: left;
 }
