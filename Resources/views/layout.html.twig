@@ -13,7 +13,7 @@
         
         <title>{{ app_title_default }} {% block title %}{% endblock %}</title>
         
-        <link rel="shortcut icon" href="images/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
 
         {% block stylesheets %}
             <!-- Bootstrap 3.3.4 -->
@@ -51,7 +51,7 @@
         {% endblock javascripts_top %}
     </head>
     
-    <body class="skin-blue fixed">
+    <body class="{{ skin_template }} fixed">
         
         <!-- Site wrapper -->
         <div class="wrapper">
