@@ -3,8 +3,8 @@
 {% block form_row -%}
     {% spaceless %}
         <div class="form-group{% if (not compound or force_error|default(false)) and not valid %} has-error{% endif %}">
-
-            {% if form.vars.name != field_translation %}
+            
+            {% if field_translation is not defined %}
                 {{ form_label(form) }}
             {% endif %}
 
@@ -18,7 +18,7 @@
 
 
 {% block form_group_class -%}
-    {%- if form.vars.name != field_translation -%}
+    {% if field_translation is not defined %}
         col-sm-10
     {%- else -%}
         col-sm-12
