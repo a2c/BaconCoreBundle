@@ -4,21 +4,20 @@ namespace Bacon\Bundle\CoreBundle\Form\Handler;
 
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 use Symfony\Component\Security\Acl\Exception\Exception;
 
+/**
+ * Class FormHandler
+ * @package Bacon\Bundle\CoreBundle\Form\Handler
+ * @author Adan Felipe Medeiros <adan.grg@gmail.com>
+ */
 abstract class FormHandler
 {
     /**
      * @var FormInterface
      */
     protected $form;
-
-    /**
-     * @var Request
-     */
-    protected $request;
 
     /**
      * @var EntityManager
@@ -32,14 +31,12 @@ abstract class FormHandler
 
     /**
      * @param FormInterface $form
-     * @param Request $request
      * @param EntityManager $em
      * @param FlashBag $flashBag
      */
-    public function __construct(FormInterface $form,Request $request,EntityManager $em,FlashBag $flashBag)
+    public function __construct(FormInterface $form,EntityManager $em,FlashBag $flashBag)
     {
         $this->form     = $form;
-        $this->request  = $request;
         $this->em       = $em;
         $this->flashBag  = $flashBag;
     }
@@ -63,7 +60,7 @@ abstract class FormHandler
     /**
      * @return EntityManager
      */
-    public function getEm()
+    public function getEntityManager()
     {
         return $this->em;
     }
@@ -76,52 +73,70 @@ abstract class FormHandler
         return $this->flashBag;
     }
 
+    /**
+     * @return bool|mixed
+     */
     public function save()
     {
-        $this->getForm()->handleRequest($this->getRequest());
-        
-        if ($this->getForm()->isSubmitted() && $this->getForm()->isValid()) {
+        if ($this->getForm()->isValid()) {
 
             $data = $this->getForm()->getData();
 
             $created = is_null($data->getId()) ? true : false;
             try {
-
                 if ($created)
-                    $this->getEm()->persist($data);
+                    $this->getEntityManager()->persist($data);
                 else
-                    $this->getEm()->merge($data);
+                    $this->getEntityManager()->merge($data);
 
-                $this->getEm()->flush();
+                $this->getEntityManager()->flush();
 
-                $this->getFlashBag()->add('message', array(
+                $this->getFlashBag()->add('message', [
                     'type' => 'success',
                     'message' => sprintf('The record has been %s successfully.', $created ? 'created' : 'updated'),
-                ));
+                ]);
 
                 return $data;
 
             } catch (\Exception $e) {
 
-                $this->getFlashBag()->add('message', array(
+                $this->getFlashBag()->add('message', [
                     'type' => 'error',
                     'message' => $e->getMessage(),
-                ));
+                ]);
 
                 return false;
             }
-
         } 
 
         $errors = $this->getForm()->getErrors();
         
         foreach ($errors as $error) {
-            $this->getFlashBag()->add('message', array(
+            $this->getFlashBag()->add('message', [
                 'type' => 'error',
                 'message' => $error->getMessage(),
-            ));
+            ]);
         }
 
         return false;
+    }
+
+    public function delete($entity)
+    {
+        try {
+            $this->getEntityManager()->remove($entity);
+            $this->getEntityManager()->flush();
+
+            $this->getFlashBag()->add('message', [
+                'type' => 'success',
+                'message' => 'The record has been remove successfully.',
+            ]);
+        } catch (\Exception $e) {
+            $this->getFlashBag()->add('message', [
+                'type' => 'error',
+                'message' => $e->getMessage(),
+            ]);
+        }
+
     }
 }

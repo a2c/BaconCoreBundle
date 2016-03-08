@@ -50,13 +50,21 @@
             <source>Users</source>
             <target>Usuários</target>
       </trans-unit>
-        <trans-unit id="1063e38cb53d94d386f21227fcsdw471s7" resname="The record has been created successfully">
-            <source>The record has been created successfully</source>
-            <target>Registro cadastrado com sucesso</target>
-        </trans-unit>
       <trans-unit id="0095a9fa74d1713e43e370a7d7846224" resname="Export">
         <source>Export</source>
         <target>Exportar</target>
+      </trans-unit>
+      <trans-unit id="d080b04fb6d6aa0b92bb18a5d7d9ee0c" resname="The record has been created successfully.">
+        <source>The record has been created successfully.</source>
+        <target>O registro foi cadastrado com sucesso.</target>
+      </trans-unit>
+      <trans-unit id="f5bfd243e88f84223de4ac22d687c1b8" resname="The record has been updated successfully.">
+        <source>The record has been updated successfully.</source>
+        <target>O registro foi atualizado com sucesso.</target>
+      </trans-unit>
+      <trans-unit id="d239d0d964e84afd6db5eeca65ac5129" resname="The record has been remove successfully.">
+        <source>The record has been remove successfully.</source>
+        <target>O registro foi removido com sucesso.</target>
       </trans-unit>
     </body>
   </file>
