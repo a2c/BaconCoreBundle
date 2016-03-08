@@ -20,7 +20,7 @@
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-
+		{% if bacon_menu_language_number() > 1 %}
                 <li class="dropdown tasks-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         <i class="ion-earth"></i>
@@ -37,6 +37,7 @@
                         <li class="footer"></li>
                     </ul>
                 </li>
+		{% endif %}
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
