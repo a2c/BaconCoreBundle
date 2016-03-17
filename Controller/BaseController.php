@@ -56,8 +56,18 @@ class BaseController extends FOSRestController
 
         $data = json_encode($request->request->all());
         $serializer = $this->container->get('jms_serializer');
-        $entity = $serializer->deserialize($data, $entityName, 'json');
+        $validator = $this->container->get('validator');
 
+        try {
+            $entity = $serializer->deserialize($data, $entityName, 'json');
+        } catch (RuntimeException $e) {
+            throw new HttpException($e->getMessage(), 400);
+        }
+
+        if(count($errors = $validator->validate($entity))){
+            return $errors;
+        }
+        
         if(!$entity->getCreatedAt())
         {
             $entity->setCreatedAt(new Datetime());
