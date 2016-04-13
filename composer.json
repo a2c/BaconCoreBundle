@@ -21,9 +21,7 @@
         "gedmo/doctrine-extensions": "2.4.*",
         "phpoffice/phpexcel" : "1.8.1",
         "fzaninotto/faker": "^1.5",
-        "knplabs/knp-paginator-bundle": "2.5.*",
-        "friendsofsymfony/rest-bundle": "*",
-        "jms/serializer-bundle" : "*"
+        "knplabs/knp-paginator-bundle": "2.5.*"
     },
     "autoload": {
         "psr-4": { "Bacon\\Bundle\\CoreBundle\\": "" }
