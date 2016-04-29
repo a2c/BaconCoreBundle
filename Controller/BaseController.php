@@ -2,14 +2,12 @@
 
 namespace Bacon\Bundle\CoreBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-
-use JMS\Serializer\SerializerBuilder as Serializer;
 use JMS\Serializer\SerializationContext;
 
 use FOS\RestBundle\Controller\FOSRestController;
 use Datetime;
+use Symfony\Component\DependencyInjection\Exception\RuntimeException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 /**
  * Language controller.
@@ -19,14 +17,14 @@ use Datetime;
  */
 class BaseController extends FOSRestController
 {
-    public function getContext($groups)
+    protected function getContext($groups)
     {
         $groups[] = 'base';
         $context = SerializationContext::create();
         return $context->setGroups($groups);
     }
 
-    public function takeOutAccents($string)
+    protected function takeOutAccents($string)
     {
         $patterns[0] = '/[Ã¡|Ã¢|Ã |Ã¥|Ã¤]/';
         $patterns[1] = '/[Ã°|Ã©|Ãª|Ã¨|Ã«]/';
@@ -48,7 +46,7 @@ class BaseController extends FOSRestController
         return preg_replace($patterns, $replacements,$string);
     }
     
-    public function saveEntity($entityName, $request, $id = null)
+    protected function saveEntity($entityName, $request, $id = null)
     {
         if ($id) {
            $request->request->add(array('id' => $id));
