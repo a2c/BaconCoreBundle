@@ -60,3 +60,8 @@ services:
 ```
 
 Para configurar o pacote KnpPaginatorBundle basta olhar na configuração do bundle no acessando o este [Link](https://github.com/KnpLabs/KnpPaginatorBundle)!
+
+
+### Informações adicionais
+
+* [TwigExtensions](https://github.com/a2c/BaconCoreBundle/tree/master/Resources/doc/TwigExtensions.md)

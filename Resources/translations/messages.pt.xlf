@@ -66,6 +66,10 @@
         <source>The record has been remove successfully.</source>
         <target>O registro foi removido com sucesso.</target>
       </trans-unit>
+      <trans-unit id="b5c4cafcb4fcdbea263c9e892d3c7806" resname="Indicates required field">
+        <source>Indicates required field</source>
+        <target>Indica campo obrigatório</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -1,6 +1,5 @@
 jQuery(document).ready(function($) {
-
-
+    
     $.validator.setDefaults({
         errorElement: "span",
         errorClass: "help-block",
