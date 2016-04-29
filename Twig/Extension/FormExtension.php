@@ -40,6 +40,4 @@ class FormExtension extends \Twig_Extension implements \Twig_Extension_InitRunti
     {
         return 'bacon_form_extension';
     }
-
-
 }
