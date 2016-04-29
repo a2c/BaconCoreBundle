@@ -6,6 +6,8 @@ use JMS\Serializer\SerializationContext;
 
 use FOS\RestBundle\Controller\FOSRestController;
 use Datetime;
+use Symfony\Component\DependencyInjection\Exception\RuntimeException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 /**
  * Language controller.
