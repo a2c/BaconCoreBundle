@@ -13,31 +13,36 @@
 
             <div class="modal-footer">
                 <div class="btn-group pull-right">
-                    {% if form.vars.action is empty %}
-                        {% block form_open %}<form class="form-delete-inline" action="{{ path(route, { 'id': id }) }}" method="post">{% endblock %}
-                            {% block method %}
-                                <input type="hidden" name="_method" value="DELETE" />
-                            {% endblock %}
-                            {% block id %}
-                                <input type="hidden" name="id" value="{{ id }}" />
-                            {% endblock %}
-                            {% block token %}
-                                <input type="hidden" name="form[_token]" value="{{ form._token.vars.value }}" />
-                            {% endblock %}
-                            {% block action %}
+                    {% if form is defined %}
+                        {% if form.vars.action is empty %}
+                            {% block form_open %}<form class="form-delete-inline" action="{{ path(route, { 'id': id }) }}" method="post">{% endblock %}
+                                {% block method %}
+                                    <input type="hidden" name="_method" value="DELETE" />
+                                {% endblock %}
+                                {% block id %}
+                                    <input type="hidden" name="id" value="{{ id }}" />
+                                {% endblock %}
+                                {% block token %}
+                                    <input type="hidden" name="form[_token]" value="{{ form._token.vars.value }}" />
+                                {% endblock %}
+                                {% block action %}
+                                    <a class="btn btn-default" data-dismiss="modal" aria-hidden="true">{{ 'No'|trans }}</a>
+                                    <button type="submit" class="btn btn-danger" title="{{ 'Remove' | trans }}">
+                                       <span class="glyphicon glyphicon-remove"></span> {{ 'Remove' | trans }}
+                                    </button>
+                                {% endblock %}
+                            {% block form_close %}</form>{% endblock %}
+                        {% else %}
+                            {{ form_start(form) }}
                                 <a class="btn btn-default" data-dismiss="modal" aria-hidden="true">{{ 'No'|trans }}</a>
                                 <button type="submit" class="btn btn-danger" title="{{ 'Remove' | trans }}">
-                                   <span class="glyphicon glyphicon-remove"></span> {{ 'Remove' | trans }}
+                                    <span class="glyphicon glyphicon-remove"></span> {{ 'Remove' | trans }}
                                 </button>
-                            {% endblock %}
-                        {% block form_close %}</form>{% endblock %}
+                            {{ form_end(form) }}
+                        {% endif %}
                     {% else %}
-                        {{ form_start(form) }}
-                            <a class="btn btn-default" data-dismiss="modal" aria-hidden="true">{{ 'No'|trans }}</a>
-                            <button type="submit" class="btn btn-danger" title="{{ 'Remove' | trans }}">
-                                <span class="glyphicon glyphicon-remove"></span> {{ 'Remove' | trans }}
-                            </button>
-                        {{ form_end(form) }}
+                        <a class="btn btn-default" data-dismiss="modal" aria-hidden="true">{{ 'No'|trans }}</a>
+                        <a class="btn btn-danger" href="{{ url }}"><span class="glyphicon glyphicon-remove"></span> {{ 'Remove' | trans }}</a>
                     {% endif %}
                 </div>
             </div>
