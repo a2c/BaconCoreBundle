@@ -1,0 +1,25 @@
+<div id="modalDeleteBatch" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">{{ 'Remove'|trans }}</h4>
+            </div>
+
+            <div class="modal-body">
+                {{ 'Are you sure you want to remove this records'|trans }} ?
+            </div>
+
+            <div class="modal-footer">
+                <div class="btn-group pull-right">
+                    <a class="btn btn-default" data-dismiss="modal" aria-hidden="true">{{ 'No'|trans }}</a>
+                    <button type="submit" class="btn btn-danger" title="{{ 'Remove' | trans }}">
+                       <span class="glyphicon glyphicon-remove"></span> {{ 'Remove' | trans }}
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
