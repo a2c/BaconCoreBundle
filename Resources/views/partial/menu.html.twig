@@ -35,7 +35,15 @@
 
         {%- if item.hasChildren %}
             {%- do item.setAttribute('class', (item.attribute('class')~' treeview')|trim) %}
+            {%- for child in item.children %}
+                {%- if child.extra('routes')[0]['route'] == app.request.attributes.get('_route') %}
+                    {%- do child.setCurrent(true) %}
+                    {%- do item.setCurrent(true) %}
+                {%- endif %}
+            {%- endfor %}
+
         {%- endif %}
+
         {%- if active %}
             {%- do item.setAttribute('class', (item.attribute('class')~' active')|trim) %}
             {%- do item.setChildrenAttribute('class', (item.childrenAttribute('class')~' active')|trim) %}
