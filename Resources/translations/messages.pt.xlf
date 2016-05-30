@@ -70,6 +70,18 @@
         <source>Indicates required field</source>
         <target>Indica campo obrigatório</target>
       </trans-unit>
+      <trans-unit id="a8929eb5c1553d3f70497f862d25d0ce" resname="Select Action">
+        <source>Select Action</source>
+        <target>Selecione uma ação</target>
+      </trans-unit>
+      <trans-unit id="f2a6c498fb90ee345d997f888fce3b18" resname="Delete">
+        <source>Delete</source>
+        <target>Deletar</target>
+      </trans-unit>
+      <trans-unit id="9639e32cab248434a17ab32237cb3b71" resname="Apply">
+        <source>Apply</source>
+        <target>Aplicar</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
