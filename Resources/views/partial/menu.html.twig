@@ -59,7 +59,10 @@
         {% set translation_domain = item.extra('translation_domain', 'messages') %}
         {% set icon = item.attribute('icon')|default(item.level > 1 ? '<i class="fa fa-angle-double-right"></i>' : '') %}
         {% set is_link = true %}
-        {{ parent() }}
+        {% set icon_before_span = item.extras.icon|default('') %}
+
+        <a href="{{ item.uri }}"{{ knp_menu.attributes(item.linkAttributes) }}> {{ icon_before_span|raw }} <span>{{ block('label') }}</span></a>
+
     {% endspaceless %}
 {% endblock %}
 
