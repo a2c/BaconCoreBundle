@@ -72,7 +72,9 @@
             {% set translation_domain = item.extra('label_catalogue') %}
             {% set icon = item.attribute('icon')|default(item.level > 1 ? '<i class="fa fa-angle-double-right"></i>' : '') %}
             {{ icon|raw }}
-            {{ parent() }}
+            {% set icon_before_span = item.extras.icon|default('') %}
+
+            {{ icon_before_span|raw }} <span>{{ block('label') }}</span>
             <i class="fa pull-right fa-angle-left"></i>
         </a>
     {% endspaceless %}
