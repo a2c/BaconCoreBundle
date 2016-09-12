@@ -24,3 +24,14 @@
         col-sm-12
     {%- endif -%}
 {%- endblock form_group_class %}
+
+{% block bacon_content_flex_widget %}
+    {% spaceless %}
+        <select name="bacon_content_flex_group_field" id="bacon_content_flex_group_field" class="select2" data-width="95%">
+            {% for group in groupsFields %}
+                <option value="{{ group.id }}">{{ group.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="button" class="btn btn-primary" id="bacon_content_flex_add"><span class="glyphicon glyphicon-plus-sign"></span></button>
+    {% endspaceless %}
+{% endblock bacon_content_flex_widget %}
