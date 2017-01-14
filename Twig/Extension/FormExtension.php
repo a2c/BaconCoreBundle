@@ -1,6 +1,7 @@
 <?php
 
 namespace Bacon\Bundle\CoreBundle\Twig\Extension;
+use \Twig_Environment;
 
 
 /**
@@ -32,6 +33,17 @@ class FormExtension extends \Twig_Extension implements \Twig_Extension_InitRunti
         </div>    
        ';
     }
+
+    public function initRuntime(Twig_Environment $environment)
+    {
+        // TODO: Implement initRuntime() method.
+    }
+
+    public function getGlobals()
+    {
+        // TODO: Implement getGlobals() method.
+    }
+
 
     /**
      * @return string
