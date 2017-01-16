@@ -41,7 +41,7 @@ class FormExtension extends \Twig_Extension implements \Twig_Extension_InitRunti
 
     public function getGlobals()
     {
-        // TODO: Implement getGlobals() method.
+        return [];
     }
 
 
